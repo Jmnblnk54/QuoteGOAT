@@ -1,1 +1,1 @@
-# QuoteGOATS
+# QuoteGOAT
