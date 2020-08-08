@@ -1,0 +1,20 @@
+{
+  "name": "quotegoat",
+  "version": "1.0.0",
+  "description": "Quote App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beki-G/QuoteGOAT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beki-G/QuoteGOAT/issues"
+  },
+  "homepage": "https://github.com/Beki-G/QuoteGOAT#readme"
+}
