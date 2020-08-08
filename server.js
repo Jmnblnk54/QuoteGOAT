@@ -1,3 +1,1 @@
-const something = function(){
-    if() {console.log(something        )}
-}
+console.log("hello world!");
