@@ -4,8 +4,9 @@
   "description": "Quote App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "",
+    "start": "node server.js",
+    "lint": "eslint \"./**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Beki-G/QuoteGOAT/issues"
   },
-  "homepage": "https://github.com/Beki-G/QuoteGOAT#readme"
+  "homepage": "https://github.com/Beki-G/QuoteGOAT#readme",
+  "dependencies": {
+    "eslint": "^7.6.0"
+  }
 }
