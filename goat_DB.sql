@@ -107,3 +107,4 @@ VALUES (5, 5, 60);
 
 INSERT INTO votes (quote_ID, category_id, number_of_votes)
 VALUES (6, 6, 50);
+
