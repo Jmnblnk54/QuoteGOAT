@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     categoryrName: {type: DataTypes.STRING, allowNull: false}, });
 
   Category.associate = function (models) {
-    Category.belongsTo(models.Votes, {
+    Category.belongsTo(models.Vote, {
       foreignKey: {
         allowNull: false}
     });

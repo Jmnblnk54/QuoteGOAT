@@ -4,7 +4,7 @@ const express = require("express");
 // const mysql = require("mysql");
 // const exphbs = require("express-handlebars");
 
-
+const db = require("./models");
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -19,11 +19,14 @@ app.use(express.static("#"));
 
 // Routes
 // =============================================================
-require("./app/routes/api-routes.js")(app);
-require("./app/routes/html-routes.js")(app);
+// require("./routes/api-routes")(app);
+// require("./routes/html-routes")(app);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function () {
-  console.log("App listening on PORT " + PORT);
+
+db.sequelize.sync().then(function(){
+  app.listen(PORT, function(){
+    console.log("Listening on port %s", PORT);
+  });
 });

@@ -4,10 +4,10 @@ module.exports = function (sequelize, DataTypes) {
     categoryId: {type: DataTypes.INTEGER, allowNull: false},
     userId: {type: DataTypes.INTEGER, allowNull: false},
     quote: {type: DataTypes.STRING, allowNull: false},
-    dateAdded: {type: DataTypes.DATETIME, allowNull: false} });
+    dateAdded: {type: DataTypes.DATE, allowNull: false} });
 
   Quote.associate = function (models) {
-    Quote.belongsTo(models.Votes, {
+    Quote.belongsTo(models.Vote, {
       foreignKey: {
         allowNull: false
       }
