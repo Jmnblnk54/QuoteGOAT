@@ -12,5 +12,6 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
   };
+  console.log("User is: ", User);
   return User;
 };
