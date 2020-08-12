@@ -1,5 +1,4 @@
 // Dependancies
-const Sequilize = require("sequelize");
 const db = require("../models");
 
 // Routes
