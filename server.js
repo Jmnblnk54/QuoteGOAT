@@ -2,7 +2,7 @@
 // =============================================================
 const express = require("express");
 // const mysql = require("mysql");
-// const exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 
 const db = require("./models");
 // Sets up the Express App
@@ -15,12 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("#"));
+app.use(express.static("public"));
+
+// Set Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-// require("./routes/api-routes")(app);
-// require("./routes/html-routes")(app);
+//require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
 
 // Starts the server to begin listening
 // =============================================================
