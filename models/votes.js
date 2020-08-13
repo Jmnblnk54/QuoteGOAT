@@ -4,7 +4,5 @@ module.exports = function (sequelize, DataTypes) {
     quoteId: {type: DataTypes.INTEGER, allowNull: false},
     categoryId: {type: DataTypes.INTEGER, allowNull: false},
     numberOfVotes: {type: DataTypes.INTEGER, allowNull: false} });
-
-
   return Vote;
 };
