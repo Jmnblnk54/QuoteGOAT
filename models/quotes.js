@@ -5,13 +5,12 @@ module.exports = function (sequelize, DataTypes) {
     userId: {type: DataTypes.INTEGER, allowNull: false},
     quote: {type: DataTypes.STRING, allowNull: false} });
 
-  // Quote.associate = function (models) {
-  //   Quote.belongsTo(models.Vote, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-  // console.log("Quote is: ", Quote);
+  Quote.associate = function (models) {
+    Quote.hasMany(models.Vote, {
+      onDelete: "cascade",
+      foreignKey:"quoteId"
+    });
+  };
+  console.log("Quote is: ", Quote);
   return Quote;
 };
