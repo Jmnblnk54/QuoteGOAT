@@ -1,12 +1,13 @@
 const db = require("../models");
+const sequelize = require("sequelize");
 
-module.exports= function(app){
+module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
-  app.get("/api/top_quotes", function(req,res){
+  app.get("/api/top_quotes", function (req, res) {
     db.Vote.findAll({
       limit: 10,
-      order:[["numberOfVotes", "DESC"]]
-    }).then(function(dbVote){
+      order: [["numberOfVotes", "DESC"]],
+    }).then(function (dbVote) {
       res.json(dbVote);
     });
   });
@@ -15,21 +16,12 @@ module.exports= function(app){
 
   //   });
 
-  app.get("/api/random_quote", function(req,res){
-    Quote.find({
-      order: [
-        Sequelize.fn( "RAND" ),
-      ]
-    }).then(function(dbQuote){
+  app.get("/api/random_quote", function (req, res) {
+    db.Quote.findAll({
+      order: [[sequelize.fn("RAND", "")]],
+      limit: 1
+    }).then(function (dbQuote) {
       res.json(dbQuote);
     });
   });
-
 };
-
-
-// SELECT * FROM TableA A INNER JOIN TableB B ON A.key = B.key
-
-// SELECT OrderNumber, TotalAmount, FirstName, LastName, City, Country
-//   FROM [quotes] JOIN Customer
-//     ON [quotes].CustomerId = Customer.Id

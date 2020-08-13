@@ -2,7 +2,7 @@
 // =============================================================
 const express = require("express");
 // const mysql = require("mysql");
-// const exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 const sequelize = require("sequelize");
 
 const db = require("./models");
@@ -16,7 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("#"));
+app.use(express.static("public"));
+
+// Set Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
