@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 // Dependencies add sequel and sequelize, handlebars
 // =============================================================
 const express = require("express");
-// const mysql = require("mysql");
+const mysql = require("mysql");
 const exphbs = require("express-handlebars");
+const sequelize = require("sequelize");
 
 const db = require("./models");
 // Sets up the Express App
