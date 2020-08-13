@@ -13,4 +13,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/css/style.css"));
   });
 
+
+
+  app.get("/add", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/css/style.css"));
+  });
+
 };

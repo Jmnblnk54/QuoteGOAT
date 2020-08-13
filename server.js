@@ -3,6 +3,7 @@
 const express = require("express");
 // const mysql = require("mysql");
 const exphbs = require("express-handlebars");
+// const sequelize = require("sequelize");
 
 const db = require("./models");
 // Sets up the Express App
