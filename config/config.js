@@ -4,7 +4,7 @@ require("dotenv").config();
 module.exports = {
   "development": {
     "username": "root",
-    "password": process.env.SQLPASS,
+    "password": "Yana5624!",
     "database": "quoteGoat_db",
     "host": "127.0.0.1",
     "port": 3306,

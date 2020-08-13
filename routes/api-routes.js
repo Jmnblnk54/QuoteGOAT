@@ -12,7 +12,7 @@ module.exports = function (app) {
     });
   });
 
-
+  //Route to get a random quote
   app.get("/api/random_quote", function (req, res) {
     db.Quote.findAll({
       order: [[sequelize.fn("RAND", "")]],
@@ -55,5 +55,19 @@ module.exports = function (app) {
       console.log("Here is a list of all categories:", dbCategories);
     });
   });
+
+  //Route to get top categories
+  app.get("/api/top_categories", function (req, res) {
+    db.Category.findAll({
+      limit: 10,
+      order: [["numberOfVotes", "DESC"]],
+      include: [{
+        model: models.Vote
+      }]
+    }).then(function (dbCategory) {
+      res.json(dbCategory);
+    });
+  });
+
 };
 
