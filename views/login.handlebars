@@ -1,5 +1,6 @@
 <div class="body" ID="background">
     <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+    <button data-dismiss="#ido1" onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -7,19 +8,19 @@
 class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate">
     <div class="imgcontainer">
       <img src="https://i.imgur.com/Yjbt4ZR.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input id="userName" type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
+      <button type="userSubmit">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -31,6 +32,40 @@ class="close" title="Close Modal">&times;</span>
     </div>
   </form>
 </div>
+
+<!-- The Sign Up Modal -->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='block'"
+class="close" title="Close Modal">&times;</span>
+
+  <!-- Sign Up Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="https://i.imgur.com/Yjbt4ZR.png" alt="Avatar" class="avatar">
     </div>
+
+    <div class="container">
+      <label for="newUserName"><b>User Name</b></label>
+      <input id="newUserName" type="text" placeholder="Enter New Username" name="newUserName" required>
+
+      <label for="fullName"><b>Full Name</b></label>
+      <input id="fullName" type="text" placeholder="Enter Full Name" name="fullName" required>
+
+      <label for="newEmail"><b>Email</b></label>
+      <input id="newEmail" type="text" placeholder="Enter Email" name="newEmail" required>
+
+      <label for="newPswd"><b>New Password</b></label>
+      <input id="newPassword" type="password" placeholder="Enter New Password" name="newPswd" required>
+
+      <button type="newUserSubmit">Submit</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</div>
 
 
