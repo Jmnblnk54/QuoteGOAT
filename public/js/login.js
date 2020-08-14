@@ -10,9 +10,9 @@ $(document).ready(function () {
     };
     console.log(newUser);
 
-    $.post("/api/users", newUser).then(function){
+    // $.post("/api/users", newUser).then(function){
 
-    }
+    // }
   });
 
   $("#UserSubmit").on("click", function (event) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
     };
     console.log(User);
 
-    $.post("/api/users", newUser).then(function){
-    }
+    // $.post("/api/users", newUser).then(function){
+    // }
   });
 });
