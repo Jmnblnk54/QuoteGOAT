@@ -1,6 +1,7 @@
 const db = require("../models");
 const sequelize = require("sequelize");
 
+
 module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   app.get("/api/top_quotes", function (req, res) {
@@ -58,11 +59,11 @@ module.exports = function (app) {
 
   //Route to get top categories
   app.get("/api/top_categories", function (req, res) {
-    db.Category.findAll({
+    db.Vote.findAll({
       limit: 10,
-      order: [["numberOfVotes", "DESC"]],
+      order: [["number_of_votes", "DESC"]],
       include: [{
-        model: models.Vote
+        model: db.Category
       }]
     }).then(function (dbCategory) {
       res.json(dbCategory);
