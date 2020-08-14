@@ -1,12 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
   var Category = sequelize.define("Category", {
-    categoryId: {type: DataTypes.INTEGER, allowNull: false, primaryKey:true},
-    categoryrName: {type: DataTypes.STRING, allowNull: false}, });
+    categoryId: {type: DataTypes.INTEGER, allowNull: false, primaryKey:true, autoIncrement:true},
+    categoryName: {type: DataTypes.STRING, allowNull: false}, });
 
   Category.associate = function (models) {
-    Category.belongsTo(models.Vote, {
-      foreignKey: {
-        allowNull: false}
+    Category.hasMany(models.Vote, {
+      onDelete:"cascade",
+      foreignKey:"categoryId"
     });
   };
   return Category;
