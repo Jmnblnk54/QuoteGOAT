@@ -77,7 +77,8 @@ module.exports = function (app) {
       limit: 10,
       order: [["number_of_votes", "DESC"]],
       include: [{
-        model: db.Category
+        model: db.Category,
+        attributes: ["categoryName"]
       }]
     }).then(function (dbCategory) {
       res.json(dbCategory);
