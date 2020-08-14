@@ -3,6 +3,7 @@ const db = require("../models");
 const sequelize = require("sequelize");
 const { Sequelize } = require("../models");
 
+
 module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   app.get("/api/top_quotes", function (req, res) {
@@ -22,7 +23,7 @@ module.exports = function (app) {
     });
   });
 
-
+  //Route to get a random quote
   app.get("/api/random_quote", function (req, res) {
     db.Quote.findAll({
       order: Sequelize.literal("rand()"),
@@ -69,5 +70,20 @@ module.exports = function (app) {
       console.log("Here is a list of all categories:", dbCategories);
     });
   });
+
+  //Route to get top categories
+  app.get("/api/top_categories", function (req, res) {
+    db.Vote.findAll({
+      limit: 10,
+      order: [["number_of_votes", "DESC"]],
+      include: [{
+        model: db.Category,
+        attributes: ["categoryName"]
+      }]
+    }).then(function (dbCategory) {
+      res.json(dbCategory);
+    });
+  });
+
 };
 
