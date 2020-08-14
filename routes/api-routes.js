@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 const db = require("../models");
 const sequelize = require("sequelize");
+const { Sequelize } = require("../models");
 
 
 module.exports = function (app) {
@@ -8,6 +10,14 @@ module.exports = function (app) {
     db.Vote.findAll({
       limit: 10,
       order: [["numberOfVotes", "DESC"]],
+      include:[{
+        model: db.Quote,
+        attributes:["quote"]
+      },{
+        model: db.Category,
+        attributes:["categoryName"]
+      }]
+
     }).then(function (dbVote) {
       res.json(dbVote);
     });
@@ -16,7 +26,7 @@ module.exports = function (app) {
   //Route to get a random quote
   app.get("/api/random_quote", function (req, res) {
     db.Quote.findAll({
-      order: [[sequelize.fn("RAND", "")]],
+      order: Sequelize.literal("rand()"),
       limit: 1
     }).then(function (dbQuote) {
       res.json(dbQuote);
@@ -34,7 +44,11 @@ module.exports = function (app) {
   // Route to get all posts from user
   app.get("/api/quotes/:user", function (req, res) {
     db.Quote.findAll({
-      where: {userID: req.params.userID}
+      where: {userID: req.params.user},
+      include: [{
+        model:db.User,
+        attributes:["userName"]
+      }]
     }).then(function (dbQuotes) {
       res.json(dbQuotes);
       console.log("Here is a list of all quotes:", dbQuotes);

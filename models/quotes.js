@@ -10,6 +10,12 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade",
       foreignKey:"quoteId"
     });
+    Quote.belongsTo(models.User, {
+      foreignKey:{
+        as:"userId",
+        constraints:false,
+      }
+    });
   };
   console.log("Quote is: ", Quote);
   return Quote;

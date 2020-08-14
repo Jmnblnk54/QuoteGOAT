@@ -5,5 +5,20 @@ module.exports = function (sequelize, DataTypes) {
     categoryId: {type: DataTypes.INTEGER, allowNull: false},
     numberOfVotes: {type: DataTypes.INTEGER, allowNull: false} });
 
+  Vote.associate = function(models){
+    Vote.belongsTo(models.Quote,{
+      foreignKey:{
+        as:"quoteId",
+        constraints:false,
+      }
+    });
+    Vote.belongsTo(models.Category,{
+      foreignKey:{
+        as:"categoryId",
+        constraints:false,
+      }
+    });
+  };
+
   return Vote;
 };
