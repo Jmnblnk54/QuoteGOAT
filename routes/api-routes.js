@@ -100,7 +100,7 @@ module.exports = function (app) {
     console.log("Request body is: ", req.body);
     db.User.create({
       username: req.body.username,
-      
+
     }).then(function(dbQuote) {
       res.json(dbQuote);
     });
