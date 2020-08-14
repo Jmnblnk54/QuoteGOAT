@@ -85,5 +85,30 @@ module.exports = function (app) {
     });
   });
 
+  // Route to Post a new quote
+  app.post("/api/quotes", function(req, res) {
+    console.log("Request body is: ", req.body);
+    db.Quote.create({
+      text: req.body.text,
+      complete: req.body.complete
+    }).then(function(dbQuote) {
+      res.json(dbQuote);
+    });
+  });
+
+  app.post("/api/users", function(req, res) {
+    console.log("Request body is: ", req.body);
+    db.User.create({
+      username: req.body.username,
+      
+    }).then(function(dbQuote) {
+      res.json(dbQuote);
+    });
+  });
+  // Delete route for deleting quotes
+  // app.delete("/api/quotes/:id", function (req, res) {});
+
+  // PUT route for updating todos. We can get the updated todo from req.body
+  // app.put("/api/quotes", function (req, res) {});
 };
 
