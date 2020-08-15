@@ -1,22 +1,22 @@
-USE quoteGoat_db;
+USE odv6wrnrhzjip3uq;
 
--- users data
-INSERT INTO users (userName, fullName, email, password, password)
+-- Users data
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("Enron Hubbard", "Ty Gerhardt", "tygerhardt@gmail.com", "1234");
 
-INSERT INTO users (userName, fullName, email, password)
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("Oscar Mild", "Bert Snert", "bert@gmail.com", "1234");
 
-INSERT INTO users (userName, fullName, email, password)
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("One Man Banned", "Ham Burgler", "ham@gmail.com", "1234");
 
-INSERT INTO users (userName, fullName, email, password)
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("Death Pimp Of Love", "Jane Goodall", "jane@gmail.com", "1234");
 
-INSERT INTO users (userName, fullName, email, password)
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("Surrealistic Brillo", "Ellen Degenerate", "ellen@gmail.com", "1234");
 
-INSERT INTO users (userName, fullName, email, password)
+INSERT INTO Users (userName, fullName, email, password)
 VALUES ("The Goat", "Billy McGoatington", "billy@gmail.com", "1234");
 
 -- quotes data
