@@ -75,7 +75,7 @@ module.exports = function (app) {
   app.get("/api/top_categories", function (req, res) {
     db.Vote.findAll({
       limit: 10,
-      order: [["number_of_votes", "DESC"]],
+      order: [["numberOfVotes", "DESC"]],
       include: [{
         model: db.Category,
         attributes: ["categoryName"]
