@@ -1,11 +1,73 @@
-<h1>QuoteGoat!</h1>
-
-<h2>Here are some quotes goat-approved</h2>
-
-<ul>
-    {{#each quote}}
-    {{> quotes/quoteblock}}
-    {{/each}}
-</ul>
-
 {{!-- <script src = "/public/js/homepage.js"></script> --}}
+
+<header id="pageHeader">
+    <!--This logo is hidden and will appear when window is resized for mobile-->
+    <div align="left"><img class="responsiveLogo" src="https://i.imgur.com/2ae5uLX.png"></div>
+    <div class="responsiveLogOut" align="right"><button onclick="">Log Out</button></div>
+</header>
+
+<!-- This is the Top Quotes Box-->
+<article id="mainArticle">
+      <h3 style="font-family: Arial, Helvetica, sans-serif;">Test Top 10 Quotes!</h3>
+      
+      <!-- This is the big white rectangle in the Top Quotes Box -->
+      <div style="font-family: Arial, Helvetica, sans-serif;" class="rectangle">
+            <ul>
+             {{#each quote}}
+             {{> quote/quoteblock}}
+             {{/each}}
+            </ul>
+      </div>
+</article>
+
+<!-- This is the left nav/user quotes and add quotes area...the logo disappears when page is resized for mobile...neat! -->
+<nav id="mainNav" style="font-family: Arial, Helvetica, sans-serif;">
+    <div><img class="logoSize" src="https://i.imgur.com/2ae5uLX.png"></div>
+    
+    <h3>My Quotes</h3>
+    
+<!-- This is the white box for the user quotes area -->
+    <div class="myquotestangle" ></div>
+    
+    <div><button class="addQuoteButton" onclick="document.getElementById('id01').style.display='block'">Add Quote</button></div>
+</nav>
+
+<!-- This is the search area -->
+<div id="siteAds" style="font-family: Arial, Helvetica, sans-serif;">
+    <form class="example" action="/action_page.php">
+        <input type="text" placeholder="Search..." name="search2">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+  
+  
+<footer id="pageFooter" style="font-family: Arial, Helvetica, sans-serif;">Stylish color bar...Ooooooh...so stylish.</footer>
+
+<!-- The Modal -->
+<div id="id01" class="modal modalbody">
+    <span onclick="document.getElementById('id01').style.display='none'"
+  class="close" title="Close Modal">&times;</span>
+  
+<!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <img src="https://i.imgur.com/Yjbt4ZR.png" alt="Avatar" class="avatar">
+      </div>
+  
+      <div class="container">
+        <label for="uname"><b>Enter Quote</b></label>
+        <br>
+        <textarea id="textBoxFormatting" type="text" placeholder="Enter Quote" name="uname" required></textarea>
+  
+  
+        <div><button type="submit">Submit</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></div>
+
+      </div>
+  
+
+
+
+</div>
+</form>
+  
