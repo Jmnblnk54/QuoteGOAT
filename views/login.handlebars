@@ -1,42 +1,48 @@
 <div class="body" ID="background">
     <button onclick="document.getElementById('id01').style.display='block'">Login</button>
-    <button data-dismiss="#ido1" onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
+    <button class="signupButton" data-dismiss="#ido1" onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
 
-<!-- The Modal -->
+<!-- The Login Modal -->
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
+  
 
-  <!-- Modal Content -->
+  <!-- Login Modal Content -->
   <form class="modal-content animate">
+      <div class="close"><span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close">&times;</span></div>
     <div class="imgcontainer">
+        
       <img src="https://i.imgur.com/Yjbt4ZR.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
+
+
       <label for="uname"><b>Username</b></label>
       <input id="userName" type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-      <button id="userSubmit" type="userSubmit">Login</button>
+      <button id="userSubmit" type="userSubmit" class="loginbtn">Login</button>
+
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <br>
+      <br>
+      <br>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
+
+    <div>&nbsp;</div>
   </form>
 </div>
 
 <!-- The Sign Up Modal -->
 <div id="id02" class="modal">
-  <span onclick="document.getElementById('id02').style.display='block'"
-class="close" title="Close Modal">&times;</span>
+ <!-- <span onclick="document.getElementById('id02').style.display='block'"
+class="close" title="Close Modal">&times;</span> -->
 
   <!-- Sign Up Modal Content -->
   <form class="modal-content animate">
@@ -57,13 +63,14 @@ class="close" title="Close Modal">&times;</span>
       <label for="newPswd"><b>New Password</b></label>
       <input id="newPassword" type="password" placeholder="Enter New Password" name="newPswd" required>
 
-      <button id="newUserSubmit" type="newUserSubmit">Submit</button>
+
+      <button id="newUserSubmit" type="newUserSubmit" class="submitbtn">Submit</button>
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
+
+
   </form>
 </div>
 </div>
