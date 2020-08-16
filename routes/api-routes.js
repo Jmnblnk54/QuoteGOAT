@@ -2,6 +2,7 @@
 const db = require("../models");
 const sequelize = require("sequelize");
 const { Sequelize } = require("../models");
+const passport = require("../config/passport");
 
 
 module.exports = function (app) {
@@ -37,21 +38,19 @@ module.exports = function (app) {
   app.get("/api/quotes", function (req, res) {
     db.Quote.findAll({}).then(function (dbQuotes) {
       res.json(dbQuotes);
-      console.log("Here is a list of all quotes:", dbQuotes);
     });
   });
 
   // Route to get all posts from user
-  app.get("/api/quotes/:user", function (req, res) {
+  app.get("/api/user_quotes", function (req, res) {
     db.Quote.findAll({
-      where: {userID: req.params.user},
+      where: {userID: req.user.userId},
       include: [{
         model:db.User,
         attributes:["userName"]
       }]
     }).then(function (dbQuotes) {
       res.json(dbQuotes);
-      console.log("Here is a list of all quotes:", dbQuotes);
     });
   });
 
@@ -59,7 +58,6 @@ module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll({}).then(function (dbUser) {
       res.json(dbUser);
-      console.log("Here is a list of all users:", dbUser);
     });
   });
 
@@ -67,7 +65,6 @@ module.exports = function (app) {
   app.get("/api/categories", function (req, res) {
     db.Category.findAll({}).then(function (dbCategories) {
       res.json(dbCategories);
-      console.log("Here is a list of all categories:", dbCategories);
     });
   });
 
@@ -75,7 +72,7 @@ module.exports = function (app) {
   app.get("/api/top_categories", function (req, res) {
     db.Vote.findAll({
       limit: 10,
-      order: [["number_of_votes", "DESC"]],
+      order: [["numberOfVotes", "DESC"]],
       include: [{
         model: db.Category,
         attributes: ["categoryName"]
@@ -87,28 +84,58 @@ module.exports = function (app) {
 
   // Route to Post a new quote
   app.post("/api/quotes", function(req, res) {
-    console.log("Request body is: ", req.body);
     db.Quote.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbQuote) {
-      res.json(dbQuote);
+      categoryId: req.body.categoryId,
+      userId: req.body.userId,
+      quote:req.body.quote,
+      UserUserId:req.body.userId,
     });
   });
 
-  app.post("/api/users", function(req, res) {
-    console.log("Request body is: ", req.body);
-    db.User.create({
-      username: req.body.username,
+  app.get("/api/user_data", function(req, res){
+    if(!req.user){
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        userName: req.user.userName,
+        fullName: req.user.fullName,
+        userId: req.user.userId
+      });
+    }
+  });
 
-    }).then(function(dbQuote) {
-      res.json(dbQuote);
-    });
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      userName: req.body.userName,
+      fullName: req.body.fullName,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+  });
+
+  app.post("/api/login", passport.authenticate("local",{ successRedirect: "/user"}), function(req, res){
+    res.json(req.user);
+  });
+
+  app.get("/logout", function(req, res){
+    req.logout();
+    res.redirect("/");
   });
   // Delete route for deleting quotes
   // app.delete("/api/quotes/:id", function (req, res) {});
 
   // PUT route for updating todos. We can get the updated todo from req.body
   // app.put("/api/quotes", function (req, res) {});
+
+
+
+
 };
 

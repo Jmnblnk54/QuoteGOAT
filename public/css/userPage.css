@@ -1,0 +1,345 @@
+body { 
+    display: grid;
+    grid-template-areas: 
+      "nav header header"
+      "nav article ads"
+      "nav footer footer";
+    grid-template-rows: 80px 1fr 70px;  
+    grid-template-columns: 20% 1fr 15%;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    }  
+  
+    .modalbody { 
+     background-color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      }  
+  
+  header, article, div {
+    padding: 10px;
+    background: aqua;
+    }
+  
+    nav {
+      padding-left: 10px;
+      background: aqua;
+       }
+  
+    footer{
+      background: #da4733; 
+    }
+  
+    div {
+      padding: 10px;
+      background: aqua;
+      
+    }
+  
+  #pageHeader {
+    grid-area: header;
+    }
+  #pageFooter {
+    grid-area: footer;
+    }
+  #mainArticle { 
+    grid-area: article;      
+    }
+  #mainNav { 
+    grid-area: nav; 
+    }
+  #siteAds { 
+    grid-area: ads; 
+    } 
+  /* Stack the layout on small devices/viewports. */
+  @media all and (max-width: 450px) {
+    body { 
+      grid-template-areas: 
+        "header"
+        "article"
+        "ads"
+        "nav"
+        "footer";
+      grid-template-rows: 80px 1fr 70px 1fr 70px;  
+      grid-template-columns: 1fr;
+   }
+  
+   .logoSize {
+      max-width: 0px !important;
+      max-height: 0px !important;
+      margin-top: -15px;
+      }
+  
+      .responsiveLogo {
+          max-width: 75px !important;
+          max-height: 75px !important;
+          margin-top: -20px;
+          }
+  
+          .responsiveLogOut {
+              margin-top: -80px !important;
+              }
+  }
+  
+  /* -----------------modal css starts here------------------------ */
+  
+  .logoSize {
+  max-width: 75%;
+  max-height: 75%;
+  margin-top: -15px;
+  }
+  
+  .responsiveLogo {
+      max-width: 0px;
+      max-height: 0px;
+      margin-top: -20px;
+      }
+  
+  .responsiveLogOut {
+      margin-top: -40px;
+      }
+  
+  .rectangle{
+    max-width:1100px;
+    height:600px;
+    border-radius: 10px;
+    background: whitesmoke;
+  }
+  
+  .searchtangle{
+    max-width:220px;
+    height:80px;
+    border-radius: 10px;
+    background: #da4733;
+  }
+  
+  .myquotestangle{
+    max-width:305px;
+    height:500px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background: whitesmoke;
+  }
+  
+  
+  input[type=text], input[type=text] {
+    width: 80%;
+    /*padding: 60px 20px;*/
+    height: 200px;
+    margin: 8px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: content-box;
+    overflow: scroll;
+  }
+  
+  #textBoxFormatting {
+      height: 200px;
+      width: 100%;
+  }
+  
+  button {
+    background-color: #da4733;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px 0px;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    width: 100px;
+  }
+  
+  .addQuoteButton {
+    background-color: #da4733;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px 0px;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    width: 110px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .cancelbtn {
+    width: auto;
+    padding: 14px 18px;
+    background-color: #da4733;
+    ;
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 0px 0 12px 0;
+    border-radius: 10px 10px 0px 0px;
+  }
+  
+  img.avatar {
+    width: 30%;
+    border-radius: 0;
+  }
+  
+  .container {
+    padding: 16px;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
+  /*#background {
+    background-color: white;
+  
+      /* Background image is centered vertically and horizontally at all times 
+      background-position: center center;
+    
+    /* Background image doesn't tile 
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height 
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size 
+    background-size: cover; 
+  
+  } */
+  
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 30px;
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5px auto; /* 15% from the top and centered */
+      border: 1px solid #888;
+       /* Could be more or less, depending on screen size */
+      border-radius: 10px;
+    }
+    
+    /* The Close Button */
+    .close {
+      /* Position it in the top right corner outside of the modal */
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+      
+    }
+    
+    /* Close button on hover */
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+    
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+    
+    @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+    
+    @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+    }
+/*   
+    @media (max-width: 480px) {
+      .body {
+      }
+  
+      .modal-content {width: 90%;}
+      }
+  
+  @media (min-width: 481px) and (max-width: 1024px) {
+      .body {
+        
+      }
+  .modal-content {width: 90%;}
+  }
+  
+  @media (min-width: 1025px) {
+    .body {
+     
+   }
+   .modal-content {width: 50%;}
+  } */
+  
+  /* -----------------------search side bar css starts here ----------------------*/
+  
+  * {
+      box-sizing: border-box;
+    }
+    
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      max-width: 150px;
+      background: #f1f1f1;
+      max-height: 20px;
+    }
+    
+    form.example button {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+      padding: 10px 8px;
+      background: #da4733;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+      border-radius: 0px 0px 0px 0px;
+    }
+    
+    form.example button:hover {
+      background: #0b7dda;
+    }
+    
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  
+    

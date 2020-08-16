@@ -9,6 +9,7 @@ module.exports = {
         userName:"Enron Hubbard",
         fullName: "Ty Gerhardt",
         email:"tygerhardt@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,6 +17,7 @@ module.exports = {
         userName:"Oscar Mild",
         fullName: "Bert Snert",
         email:"bert@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,6 +25,7 @@ module.exports = {
         userName:"One Man Banned",
         fullName: "Ham Burgler",
         email:"ham@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -30,6 +33,7 @@ module.exports = {
         userName:"Death Pimp Of Love",
         fullName: "Jane Goodall",
         email:"jane@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -37,6 +41,7 @@ module.exports = {
         userName:"Surrealistic Brillo",
         fullName: "Ellen Degenerate",
         email:"ellen@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -44,6 +49,7 @@ module.exports = {
         userName:"The Goat",
         fullName: "Billy McGoatington",
         email:"billy@gmail.com",
+        password:"1234",
         createdAt: new Date(),
         updatedAt: new Date()
       }
