@@ -2,6 +2,7 @@
 const db = require("../models");
 const sequelize = require("sequelize");
 const { Sequelize } = require("../models");
+const passport = require("../config/passport");
 
 
 module.exports = function (app) {
@@ -75,7 +76,7 @@ module.exports = function (app) {
   app.get("/api/top_categories", function (req, res) {
     db.Vote.findAll({
       limit: 10,
-      order: [["number_of_votes", "DESC"]],
+      order: [["numberOfVotes", "DESC"]],
       include: [{
         model: db.Category,
         attributes: ["categoryName"]
@@ -96,19 +97,52 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/users", function(req, res) {
+  app.get("/api/user_data", function(req, res){
+    if(!req.user){
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        userName: req.user.userName,
+        fullName: req.user.fullName,
+        userId: req.user.userId
+      });
+    }
+  });
+
+  app.post("/api/signup", function(req, res) {
     console.log("Request body is: ", req.body);
     db.User.create({
-      username: req.body.username,
+      userName: req.body.userName,
+      fullName: req.body.fullName,
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+  });
 
-    }).then(function(dbQuote) {
-      res.json(dbQuote);
-    });
+  app.post("/api/login", passport.authenticate("local",{ successRedirect: "/user"}), function(req, res){
+    console.log("made it /api/login in api-routes");
+    res.json(req.user);
+  });
+
+  app.get("/logout", function(req, res){
+    req.logout();
+    res.redirect("/");
   });
   // Delete route for deleting quotes
   // app.delete("/api/quotes/:id", function (req, res) {});
 
   // PUT route for updating todos. We can get the updated todo from req.body
   // app.put("/api/quotes", function (req, res) {});
+
+
+
+
 };
 

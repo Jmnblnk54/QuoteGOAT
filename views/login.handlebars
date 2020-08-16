@@ -24,7 +24,8 @@ class="close" title="Close">&times;</span></div>
       <label for="psw"><b>Password</b></label>
       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="userSubmit" class="loginbtn">Login</button>
+      <button id="userSubmit" type="userSubmit" class="loginbtn">Login</button>
+
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -44,7 +45,7 @@ class="close" title="Close">&times;</span></div>
 class="close" title="Close Modal">&times;</span> -->
 
   <!-- Sign Up Modal Content -->
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate">
     <div class="imgcontainer">
       <img src="https://i.imgur.com/Yjbt4ZR.png" alt="Avatar" class="avatar">
     </div>
@@ -62,8 +63,10 @@ class="close" title="Close Modal">&times;</span> -->
       <label for="newPswd"><b>New Password</b></label>
       <input id="newPassword" type="password" placeholder="Enter New Password" name="newPswd" required>
 
-      <button type="newUserSubmit" class="submitbtn">Submit</button>
+
+      <button id="newUserSubmit" type="newUserSubmit" class="submitbtn">Submit</button>
             <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
 
     </div>
 
@@ -71,5 +74,6 @@ class="close" title="Close Modal">&times;</span> -->
   </form>
 </div>
 </div>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/public/js/login.js"></script>
 
