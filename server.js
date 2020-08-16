@@ -8,6 +8,7 @@ const sequelize = require("sequelize");
 const session = require("express-session");
 const passport = require("./config/passport");
 const db = require("./models");
+const path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"/public")));
 
 // Use sessions to track of user's login status
 app.use(session({ secret: "GoAts4D4yz", resave: true, saveUninitialized: true }));

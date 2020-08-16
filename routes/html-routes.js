@@ -7,11 +7,15 @@ module.exports = function(app) {
     if(req.user){
       res.redirect("/user");
     }
-    res.render("login");
+    res.render("login", {
+      style: "style.css"
+    });
   });
 
   app.get("/user", isAuthenticated, function(req,res){
-    res.render("userPage");
+    res.render("userPage", {
+      style: "userPage.css"
+    });
   });
 
   app.get("/public/css/style.css", function (req, res) {
