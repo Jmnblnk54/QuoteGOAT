@@ -27,8 +27,14 @@
     <h3>My Quotes</h3>
     
 <!-- This is the white box for the user quotes area -->
-    <div class="myquotestangle" ></div>
-    
+    <div class="myquotestangle" > 
+      <ul>
+        {{#each userQuote}}
+          {{> quote/userquote}}
+        {{/each}}
+      </ul>
+    </div>
+     
     <div><button class="addQuoteButton" onclick="document.getElementById('id01').style.display='block'">Add Quote</button></div>
 </nav>
 
@@ -59,8 +65,8 @@
         <br>
         <textarea id="textBoxFormatting" type="text" placeholder="Enter Quote" name="uname" required></textarea>
   
-  
-        <div><button type="submit">Submit</button>
+        <p>Categories: </p><select id="categoryOptions"></select>
+        <div><button type="submit"id="submitQuoteBtn">Submit</button>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button></div>
 
       </div>
@@ -70,4 +76,4 @@
 
 </div>
 </form>
-  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

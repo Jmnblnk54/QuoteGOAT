@@ -17,6 +17,5 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
   };
-  console.log("Quote is: ", Quote);
   return Quote;
 };
