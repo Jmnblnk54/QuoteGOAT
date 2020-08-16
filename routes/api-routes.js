@@ -38,13 +38,11 @@ module.exports = function (app) {
   app.get("/api/quotes", function (req, res) {
     db.Quote.findAll({}).then(function (dbQuotes) {
       res.json(dbQuotes);
-      console.log("Here is a list of all quotes:", dbQuotes);
     });
   });
 
   // Route to get all posts from user
   app.get("/api/user_quotes", function (req, res) {
-    console.log(req.user);
     db.Quote.findAll({
       where: {userID: req.user.userId},
       include: [{
@@ -67,7 +65,6 @@ module.exports = function (app) {
   app.get("/api/categories", function (req, res) {
     db.Category.findAll({}).then(function (dbCategories) {
       res.json(dbCategories);
-      console.log("Here is a list of all categories:", dbCategories);
     });
   });
 
@@ -87,12 +84,11 @@ module.exports = function (app) {
 
   // Route to Post a new quote
   app.post("/api/quotes", function(req, res) {
-    console.log("Request body is: ", req.body);
     db.Quote.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbQuote) {
-      res.json(dbQuote);
+      categoryId: req.body.categoryId,
+      userId: req.body.userId,
+      quote:req.body.quote,
+      UserUserId:req.body.userId,
     });
   });
 
@@ -110,7 +106,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/signup", function(req, res) {
-    console.log("Request body is: ", req.body);
     db.User.create({
       userName: req.body.userName,
       fullName: req.body.fullName,
@@ -126,7 +121,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/login", passport.authenticate("local",{ successRedirect: "/user"}), function(req, res){
-    console.log("made it /api/login in api-routes");
     res.json(req.user);
   });
 
