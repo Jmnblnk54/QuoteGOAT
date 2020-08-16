@@ -8,13 +8,11 @@ passport.use(new LocalStrategy(
     usernameField:"userName"
   },
   function(username, password, done){
-    console.log("in beginning of passport.js");
     db.User.findOne({
       where: {
         userName:username
       }
     }).then(function(dbUser){
-      console.log("this is db user:", dbUser);
       if(!dbUser) {
         console.log("Does not exist", dbUser);
         return done(null, false, {

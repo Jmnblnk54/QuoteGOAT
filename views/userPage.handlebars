@@ -27,8 +27,14 @@
     <h3>My Quotes</h3>
     
 <!-- This is the white box for the user quotes area -->
-    <div class="myquotestangle" ></div>
-    
+    <div class="myquotestangle" > 
+      <ul>
+        {{#each userQuote}}
+          {{> quote/userquote}}
+        {{/each}}
+      </ul>
+    </div>
+     
     <div><button class="addQuoteButton" onclick="document.getElementById('id01').style.display='block'">Add Quote</button></div>
 </nav>
 
@@ -70,4 +76,4 @@
 
 </div>
 </form>
-  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

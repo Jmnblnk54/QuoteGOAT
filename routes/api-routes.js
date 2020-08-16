@@ -43,16 +43,16 @@ module.exports = function (app) {
   });
 
   // Route to get all posts from user
-  app.get("/api/quotes/:user", function (req, res) {
+  app.get("/api/user_quotes", function (req, res) {
+    console.log(req.user);
     db.Quote.findAll({
-      where: {userID: req.params.user},
+      where: {userID: req.user.userId},
       include: [{
         model:db.User,
         attributes:["userName"]
       }]
     }).then(function (dbQuotes) {
       res.json(dbQuotes);
-      console.log("Here is a list of all quotes:", dbQuotes);
     });
   });
 
@@ -60,7 +60,6 @@ module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll({}).then(function (dbUser) {
       res.json(dbUser);
-      console.log("Here is a list of all users:", dbUser);
     });
   });
 

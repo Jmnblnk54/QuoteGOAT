@@ -1,5 +1,22 @@
-const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
+
+async function getUserQuotes(req, res, next){
+  const quotes = [];
+  const userquotes = await db.Quote.findAll({
+    where: {userID: req.user.userId},
+    include: [{
+      model:db.User,
+      attributes:["userName"]
+    }]
+  });
+
+  userquotes.forEach( quoteInfo => {
+    quotes.push({quote:quoteInfo.dataValues.quote});
+  });
+  res.userQuotes = quotes;
+  next();
+}
 
 module.exports = function(app) {
 
@@ -8,22 +25,18 @@ module.exports = function(app) {
       res.redirect("/user");
     }
     res.render("login", {
-      style: "style.css"
+      style: "style.css",
+      jsFile: "login.js"
     });
   });
 
-  app.get("/user", isAuthenticated, function(req,res){
+  app.get("/user", isAuthenticated, getUserQuotes, function(req,res){
     res.render("userPage", {
-      style: "userPage.css"
+      style: "userPage.css",
+      jsFile: "userPage.js",
+      userQuote: res.userQuotes
     });
   });
 
-  app.get("/public/css/style.css", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/css/style.css"));
-  });
-
-  app.get("/public/js/login.js", function(req,res){
-    res.sendFile(path.join(__dirname, "../public/js/login.js"));
-  });
 
 };
