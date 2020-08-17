@@ -13,6 +13,12 @@ $(document).ready(function () {
   });
 
   $("#submitQuoteBtn").on("click", function (event) {
+
+    function play() {
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
+      audio.play();
+    }
+    play();
     event.preventDefault();
 
     $.get("/api/user_data").then(user=>{
@@ -60,6 +66,11 @@ $(document).ready(function () {
   // });
   $("#logOut").on("click", function(event) {
     event.preventDefault();
+    function play() {
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
+      audio.play();
+    }
+    play();
     $.get("/logout").then(() => {
       window.location.href="/logout";
     });
