@@ -12,7 +12,6 @@ $(document).ready(function () {
     });
   });
 
-
   $("#submitQuoteBtn").on("click", function (event) {
     event.preventDefault();
 
@@ -52,13 +51,19 @@ $(document).ready(function () {
       );
   });
 
-
   //Logout functionality
   $("#logOut").on("click", function(event) {
     event.preventDefault();
     app.get("", function(req, res){
       req.logout();
       res.redirect("/");
+    });
+  });
+
+  $("#randomQuoteButton").on("click", function(event){
+    event.preventDefault();
+    $.get("/api/random_quote").then(randomQuote=>{
+      $("#randomQuotePlace").text(randomQuote[0].quote);
     });
   });
 });

@@ -30,6 +30,7 @@ body {
   
     footer{
       background: #da4733; 
+      overflow: scroll;
     }
   
     div {
@@ -53,9 +54,9 @@ body {
   #siteAds { 
     grid-area: ads; 
     } 
-@media all and (max-width: 1025px){
+@media all and (max-width: 1200px){
   .myquotestangle{
-  height: 70%;
+  height: 60%;
   overflow:scroll;
   }
 
