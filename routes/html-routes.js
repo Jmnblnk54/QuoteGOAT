@@ -3,18 +3,32 @@ const db = require("../models");
 
 async function getUserQuotes(req, res, next){
   const quotes = [];
-  const userquotes = await db.Quote.findAll({
+  const userQuotes = await db.Quote.findAll({
     where: {userID: req.user.userId},
     include: [{
       model:db.User,
       attributes:["userName"]
     }]
   });
-
-  userquotes.forEach( quoteInfo => {
+  userQuotes.forEach( quoteInfo => {
     quotes.push({quote:quoteInfo.dataValues.quote});
   });
   res.userQuotes = quotes;
+  next();
+}
+
+async function getSomeQuotes(req, res, next){
+  const quotes = await db.Quote.findAll({
+    limit: 10,
+    include: [{
+      model:db.User,
+      attributes:["userName"]
+    }]
+  });
+  formatedQuotes = quotes.map( quoteInfo => {
+    return {quote:quoteInfo.dataValues.quote, name: quoteInfo.dataValues.User.userName};
+  });
+  res.someQuotes = formatedQuotes;
   next();
 }
 
@@ -30,11 +44,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/user", isAuthenticated, getUserQuotes, function(req,res){
+  app.get("/user", isAuthenticated, getSomeQuotes, getUserQuotes, function(req,res){
     res.render("userPage", {
       style: "userPage.css",
       jsFile: "userPage.js",
-      userQuote: res.userQuotes
+      quotes: res.someQuotes,
+      userQuotes: res.userQuotes
     });
   });
 

@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     quoteId: {type: DataTypes.INTEGER, allowNull: false},
     categoryId: {type: DataTypes.INTEGER, allowNull: false},
     numberOfVotes: {type: DataTypes.INTEGER, allowNull: false} },
-  {timestamps:false}
+  // {timestamps:false}
   );
 
   Vote.associate = function(models){

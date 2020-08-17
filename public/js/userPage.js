@@ -25,4 +25,14 @@ $(document).ready(function () {
 
     //$.post("/api/quotes", newQuote).then(function () {});
   });
+
+
+  //Logout functionality
+  $("#logOut").on("submit", function(event) {
+    event.preventDefault();
+    app.get("", function(req, res){
+      req.logout();
+      res.redirect("/");
+    });
+  });
 });
