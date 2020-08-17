@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 
   //Logout functionality
-  $("#logOut").on("submit", function(event) {
+  $("#logOut").on("click", function(event) {
     event.preventDefault();
     app.get("", function(req, res){
       req.logout();

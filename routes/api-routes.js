@@ -21,6 +21,7 @@ module.exports = function (app) {
 
     }).then(function (dbVote) {
       res.json(dbVote);
+      console.log(dbVote);
     });
   });
 
