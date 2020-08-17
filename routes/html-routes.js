@@ -20,6 +20,7 @@ async function getUserQuotes(req, res, next){
 async function getSomeQuotes(req, res, next){
   const quotes = await db.Quote.findAll({
     limit: 10,
+    order: [["numberOfVotes", "DESC"]],
     include: [{
       model:db.User,
       attributes:["userName"]
