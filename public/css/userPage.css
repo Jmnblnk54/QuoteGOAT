@@ -1,4 +1,4 @@
-body {
+body { 
     display: grid;
     grid-template-areas: 
       "nav header header"
@@ -30,7 +30,6 @@ body {
   
     footer{
       background: #da4733; 
-      overflow: scroll;
     }
   
     div {
@@ -54,15 +53,8 @@ body {
   #siteAds { 
     grid-area: ads; 
     } 
-@media all and (max-width: 1200px){
-  .myquotestangle{
-  height: 60%;
-  overflow:scroll;
-  }
-
-}
   /* Stack the layout on small devices/viewports. */
-  @media all and (max-width: 732px) {
+  @media all and (max-width: 450px) {
     body { 
       grid-template-areas: 
         "header"
@@ -70,13 +62,9 @@ body {
         "ads"
         "nav"
         "footer";
-      grid-template-rows: auto auto;  
+      grid-template-rows: 80px 1fr 70px 1fr 70px;  
       grid-template-columns: 1fr;
    }
-   .myquotestangle{
-    height: 300px;
-    overflow:scroll;
-  }
   
    .logoSize {
       max-width: 0px !important;
@@ -120,15 +108,15 @@ body {
     margin: 12px;
     border-radius: 10px 10px 10px 10px;
     cursor: pointer;
+    width: 240px;
       
   }
   
   .rectangle{
-    max-width: 95%;;
-    height:auto;
+    max-width:1100px;
+    height:600px;
     border-radius: 10px;
     background: whitesmoke;
-    margin: auto;
   }
   
   .searchtangle{
@@ -139,7 +127,8 @@ body {
   }
   
   .myquotestangle{
-    max-width: 95%;;
+    max-width:305px;
+    height:500px;
     margin-right: 10px;
     border-radius: 10px;
     background: whitesmoke;
@@ -165,10 +154,11 @@ body {
   button {
     background-color: #da4733;
     color: white;
-    padding: 7px 15px;
+    padding: 14px 20px;
     margin: 0px 0px;
-    border-radius: 5px;
+    border-radius: 10px 10px 10px 10px;
     cursor: pointer;
+    width: 100px;
   }
   
   .addQuoteButton {
@@ -178,6 +168,7 @@ body {
     margin: 0px 0px;
     border-radius: 10px 10px 10px 10px;
     cursor: pointer;
+    width: 110px;
   }
   
   button:hover {
@@ -222,25 +213,6 @@ body {
        width: 100%;
     }
   }
-  
-  /*#background {
-    background-color: white;
-  
-      /* Background image is centered vertically and horizontally at all times 
-      background-position: center center;
-    
-    /* Background image doesn't tile 
-    background-repeat: no-repeat;
-    
-    /* Background image is fixed in the viewport so that it doesn't move when 
-       the content's height is greater than the image's height 
-    background-attachment: fixed;
-    
-    /* This is what makes the background image rescale based
-       on the container's size 
-    background-size: cover; 
-  
-  } */
   
   /* The Modal (background) */
   .modal {
@@ -300,27 +272,6 @@ body {
       from {transform: scale(0)}
       to {transform: scale(1)}
     }
-/*   
-    @media (max-width: 480px) {
-      .body {
-      }
-  
-      .modal-content {width: 90%;}
-      }
-  
-  @media (min-width: 481px) and (max-width: 1024px) {
-      .body {
-        
-      }
-  .modal-content {width: 90%;}
-  }
-  
-  @media (min-width: 1025px) {
-    .body {
-     
-   }
-   .modal-content {width: 50%;}
-  } */
   
   /* -----------------------search side bar css starts here ----------------------*/
   
