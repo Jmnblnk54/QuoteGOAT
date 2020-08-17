@@ -33,7 +33,11 @@ $(document).ready(function() {
 
   $("#newUserSubmit").on("click", function (event) {
     event.preventDefault();
-
+    function play() {
+      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      audio.play();
+    }
+    play();
 
     let newUser = {
       username: $("#newUserName").val().trim(),
@@ -58,7 +62,11 @@ $(document).ready(function() {
 
   $("#userSubmit").on("click", function (event) {
     event.preventDefault();
-
+    function play() {
+      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      audio.play();
+    }
+    play();
     let user = {
       username: $("#userName").val().trim(),
       password: $("#password").val().trim(),
