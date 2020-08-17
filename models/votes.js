@@ -3,7 +3,9 @@ module.exports = function (sequelize, DataTypes) {
     voteId: {type: DataTypes.INTEGER, allowNull: false, primaryKey:true, autoIncrement:true},
     quoteId: {type: DataTypes.INTEGER, allowNull: false},
     categoryId: {type: DataTypes.INTEGER, allowNull: false},
-    numberOfVotes: {type: DataTypes.INTEGER, allowNull: false} });
+    numberOfVotes: {type: DataTypes.INTEGER, allowNull: false} },
+  // {timestamps:false}
+  );
 
   Vote.associate = function(models){
     Vote.belongsTo(models.Quote,{

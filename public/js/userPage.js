@@ -51,4 +51,14 @@ $(document).ready(function () {
         $("#searchDiv").css("visibility", "visible")
       );
   });
+
+
+  //Logout functionality
+  $("#logOut").on("click", function(event) {
+    event.preventDefault();
+    app.get("", function(req, res){
+      req.logout();
+      res.redirect("/");
+    });
+  });
 });

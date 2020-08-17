@@ -3,20 +3,20 @@
 <header id="pageHeader">
     <!--This logo is hidden and will appear when window is resized for mobile-->
     <div align="left"><img class="responsiveLogo" src="https://i.imgur.com/2ae5uLX.png"></div>
-    <div class="responsiveLogOut" align="right"><button onclick="">Log Out</button></div>
+    <div class="responsiveLogOut" align="right"><button id="logOut" onclick="">Log Out</button></div>
 </header>
 
 <!-- This is the Top Quotes Box-->
 <article id="mainArticle">
-      <h3 style="font-family: Arial, Helvetica, sans-serif;">Test Top 10 Quotes!</h3>
+      <h3 style="font-family: Arial, Helvetica, sans-serif;">Top 10 Quotes!</h3>
       
       <!-- This is the big white rectangle in the Top Quotes Box -->
       <div style="font-family: Arial, Helvetica, sans-serif;" class="rectangle">
-            <ul>
-             {{#each quote}}
+            <ol>
+             {{#each quotes}}
              {{> quote/quoteblock}}
              {{/each}}
-            </ul>
+            </ol>
       </div>
       
       <!-- This is the Search Quotes Box -->
@@ -39,7 +39,7 @@
 <!-- This is the white box for the user quotes area -->
     <div class="myquotestangle" > 
       <ul>
-        {{#each userQuote}}
+        {{#each userQuotes}}
           {{> quote/userquote}}
         {{/each}}
       </ul>
@@ -66,7 +66,7 @@
 </div>
   
   
-<footer id="pageFooter" style="font-family: Arial, Helvetica, sans-serif;">Stylish color bar...Ooooooh...so stylish.</footer>
+<footer id="pageFooter" style="font-family: Arial, Helvetica, sans-serif;"><button onclick="" class="randomQuoteButton">Spin The Wheel, Raggedy Man!</button></footer>
 
 <!-- The Modal -->
 <div id="id01" class="modal modalbody">
