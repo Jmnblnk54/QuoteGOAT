@@ -52,11 +52,16 @@ $(document).ready(function () {
   });
 
   //Logout functionality
+  // $("#logOut").on("click", function() {
+  //   app.get("/logout", function(req, res){
+  //     req.logout();
+  //     res.redirect("/");
+  //   });
+  // });
   $("#logOut").on("click", function(event) {
     event.preventDefault();
-    app.get("", function(req, res){
-      req.logout();
-      res.redirect("/");
+    $.get("/logout").then(() => {
+      window.location.href="/logout";
     });
   });
 
