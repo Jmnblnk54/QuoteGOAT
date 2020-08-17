@@ -34,7 +34,7 @@ $(document).ready(function() {
   $("#newUserSubmit").on("click", function (event) {
     event.preventDefault();
     function play() {
-      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
       audio.play();
     }
     play();
@@ -63,7 +63,7 @@ $(document).ready(function() {
   $("#userSubmit").on("click", function (event) {
     event.preventDefault();
     function play() {
-      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
       audio.play();
     }
     play();

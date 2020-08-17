@@ -15,7 +15,7 @@ $(document).ready(function () {
   $("#submitQuoteBtn").on("click", function (event) {
 
     function play() {
-      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
       audio.play();
     }
     play();
@@ -58,16 +58,21 @@ $(document).ready(function () {
   });
 
   //Logout functionality
+  // $("#logOut").on("click", function() {
+  //   app.get("/logout", function(req, res){
+  //     req.logout();
+  //     res.redirect("/");
+  //   });
+  // });
   $("#logOut").on("click", function(event) {
     event.preventDefault();
     function play() {
-      let audio = new Audio ('https://www.fesliyanstudios.com/play-mp3/6554');
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
       audio.play();
     }
     play();
-    app.get("", function(req, res){
-      req.logout();
-      res.redirect("/");
+    $.get("/logout").then(() => {
+      window.location.href="/logout";
     });
   });
 
