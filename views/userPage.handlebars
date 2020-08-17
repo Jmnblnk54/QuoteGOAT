@@ -18,6 +18,16 @@
              {{/each}}
             </ul>
       </div>
+      
+      <!-- This is the Search Quotes Box -->
+      <div id="searchDiv" style="visibility:hidden">
+         <h3>Search Results</h3>
+        <div style="font-family: Arial, Helvetica, sans-serif; " class="rectangle">
+         
+              <ul id="searchQuotes">
+              </ul>
+        </div>
+      </div>
 </article>
 
 <!-- This is the left nav/user quotes and add quotes area...the logo disappears when page is resized for mobile...neat! -->
@@ -40,10 +50,19 @@
 
 <!-- This is the search area -->
 <div id="siteAds" style="font-family: Arial, Helvetica, sans-serif;">
-    <form class="example" action="/action_page.php">
-        <input type="text" placeholder="Search..." name="search2">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+  <div class="rectangle">
+  <h3>Search filters!</h3>
+  <p>Cateories:</p>
+  <select id="categoryDropdown"></select>
+  <br><br>
+  <p>Sort by:</p>
+  <select id="orderByDropdown">
+    <option value="ASC">Alphabetical</option>
+    <option value="createdAt">Newest</option>
+  </select>
+  <br><br>
+  <button id="searchFilterBtn" type="submit">Search!</i></button>
+  </div>
 </div>
   
   

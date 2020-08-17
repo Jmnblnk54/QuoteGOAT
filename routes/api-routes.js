@@ -128,14 +128,50 @@ module.exports = function (app) {
     req.logout();
     res.redirect("/");
   });
+
+  app.get("/api/searchBy/:categoryId/:orderby", function(req, res){
+
+    const categoryId = req.params.categoryId;
+    const orderBy = req.params.orderby;
+
+    // eslint-disable-next-line default-case
+    switch(orderBy){
+    case "ASC":
+      db.Quote.findAll({
+        where: {categoryId: categoryId},
+        include: [{
+          model:db.User,
+          attributes:["userName"]
+        }],
+        order:[["quote", "ASC"]]
+      }).then(function (dbQuotes) {
+        res.json(dbQuotes);
+      }).catch((err)=>{
+        console.log(err);
+      });
+      break;
+    case "createdAt":
+      db.Quote.findAll({
+        where: {categoryId: categoryId},
+        order:[["createdAt", "ASC"]],
+        include:[{
+          model:db.User,
+          attributes:["userName"]
+        }]
+      }).then(function(dbQuotes){
+        res.json(dbQuotes);
+      }).catch((err)=>{
+        console.log(err);
+      });
+      break;
+    }
+  });
+
   // Delete route for deleting quotes
   // app.delete("/api/quotes/:id", function (req, res) {});
 
   // PUT route for updating todos. We can get the updated todo from req.body
   // app.put("/api/quotes", function (req, res) {});
-
-
-
 
 };
 
