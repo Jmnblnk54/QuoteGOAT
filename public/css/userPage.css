@@ -100,6 +100,17 @@ body {
   .responsiveLogOut {
       margin-top: -40px;
       }
+
+  .randomQuoteButton {
+    background-color: aqua;
+    color: black;
+    padding: 14px 20px;
+    margin: 12px;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    width: 240px;
+      
+  }
   
   .rectangle{
     max-width:1100px;
