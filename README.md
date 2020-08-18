@@ -1,11 +1,11 @@
 # QuoteGOAT
 
 ## Authors
-* Beki G
-* Ty G
-* Josh B
-* Joe M
-* Heather S
+* Beki G https://github.com/Beki-G
+* Ty G https://github.com/tygerhardt
+* Josh B https://github.com/Jmnblnk54
+* Joe M https://github.com/joemengis
+* Heather S https://github.com/Wanderingtech
 
 ## License
 
