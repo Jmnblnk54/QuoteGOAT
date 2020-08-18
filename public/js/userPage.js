@@ -37,6 +37,11 @@ $(document).ready(function () {
 
   $("#searchFilterBtn").on("click", function(event){
     event.preventDefault();
+    function play() {
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
+      audio.play();
+    }
+    play();
     $("#searchQuotes").empty();
     //get the user input
     const category = $("#categoryDropdown option:selected").attr("id");
@@ -67,7 +72,7 @@ $(document).ready(function () {
   $("#logOut").on("click", function(event) {
     event.preventDefault();
     function play() {
-      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6554");
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6553");
       audio.play();
     }
     play();
@@ -78,6 +83,11 @@ $(document).ready(function () {
 
   $("#randomQuoteButton").on("click", function(event){
     event.preventDefault();
+    function play() {
+      let audio = new Audio ("https://www.fesliyanstudios.com/play-mp3/6553");
+      audio.play();
+    }
+    play();
     $.get("/api/random_quote").then(randomQuote=>{
       $("#randomQuotePlace").text(randomQuote[0].quote);
     });
