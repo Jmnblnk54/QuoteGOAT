@@ -1,5 +1,8 @@
 # QuoteGOAT
 
+Deployed App:
+https://quotegoat.herokuapp.com/
+
 ## Authors
 * Beki G
 * Ty G
@@ -58,6 +61,3 @@ Please run these commands to install dependancies for this project: npm i
 
 ![image](./assets/login.png)
 ![image](./assets/userpage.png)
-
-Deployed App:
-https://quotegoat.herokuapp.com/
